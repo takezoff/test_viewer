@@ -199,7 +199,7 @@ GameObject:
   m_Component:
   - component: {fileID: 213470873}
   m_Layer: 0
-  m_Name: Model
+  m_Name: ModelDefaultPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -213,7 +213,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 213470872}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: 0, z: 0}
+  m_LocalPosition: {x: -3, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 601627095}
@@ -633,7 +633,7 @@ Transform:
   m_GameObject: {fileID: 1566407387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children:
   - {fileID: 1846953540}
   m_Father: {fileID: 601627095}
@@ -765,6 +765,7 @@ MonoBehaviour:
   moveTargetPos: {x: 0, y: 0, z: 0}
   scaleCenterPos: {x: 0, y: 0, z: 0}
   dragZoomRate: 0.01
+  dragRotateRate: 1
   orgFov: 0
   targetZoom: 0
 --- !u!1 &1671140435
@@ -1001,7 +1002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1878085042}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -1.5}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1648247414}

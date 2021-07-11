@@ -11,6 +11,7 @@ public class Viewer3d : MonoBehaviour
     public Vector3 scaleCenterPos;  // モデルのローカル座標
 
     public float dragZoomRate = 0.01f;
+    public float dragRotateRate = 1.0f;
 
     public float orgFov;
     public float targetZoom;
@@ -20,7 +21,7 @@ public class Viewer3d : MonoBehaviour
     void Start()
     {
         orgFov = modelCamera.fieldOfView;
-        Zoom = 1.0f;
+        Reset();
     }
 
     // Update is called once per frame
@@ -49,7 +50,7 @@ public class Viewer3d : MonoBehaviour
             scDstWorldPos.y - scSrcWorldPos.y,
             0.0f);
 
-        Debug.LogFormat($"scWorldMove:{scWorldMove}");
+        //Debug.LogFormat($"scWorldMove:{scWorldMove}");
 
         modelPivot.position = modelPivot.position + scWorldMove;
     }
@@ -60,12 +61,21 @@ public class Viewer3d : MonoBehaviour
         targetZoom = 1.0f;
         scaleCenterPos = Vector3.zero;
         modelPivot.localPosition = Vector3.zero;
+        modelPivot.rotation = Quaternion.identity;
+        //modelPivot.LookAt(modelCamera.transform, Vector3.up); // ※カメラを向く
+    }
+
+    //
+    public void RotateByDrag(Vector2 delta)
+    {
+        var angles = new Vector3(delta.y * dragRotateRate, -delta.x * dragRotateRate, 0.0f);
+        modelPivot.Rotate(angles, Space.World);
     }
 
     //
     public void SetZoomByDrag(Vector2 delta)
     {
-        Zoom = Mathf.Clamp(Zoom + delta.y * dragZoomRate, 0.5f, 3.0f)   ;
+        Zoom = Mathf.Clamp(Zoom + delta.y * dragZoomRate, 0.5f, 3.0f);
     }
 
     // スケールのセンター位置を設定

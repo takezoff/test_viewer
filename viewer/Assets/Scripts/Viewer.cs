@@ -22,7 +22,9 @@ public class Viewer : MonoBehaviour
             EventTriggerType.PointerDown,
             (data) =>
             {
-                isScaleStarted = viewer3d.SetScaleCenter(data.position);
+                if (Input.GetMouseButton(1)) {
+                    isScaleStarted = viewer3d.SetScaleCenter(data.position);
+                }
             }
             ));
         // Drag
@@ -33,6 +35,10 @@ public class Viewer : MonoBehaviour
                 if (isScaleStarted)
                 {
                     viewer3d.SetZoomByDrag(data.delta);
+                }
+                else
+                {
+                    viewer3d.RotateByDrag(data.delta);
                 }
             }
             ));
